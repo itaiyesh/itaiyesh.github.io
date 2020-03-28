@@ -1,1 +1,592 @@
-hello world
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Modern Business - Start Bootstrap Template</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/modern-business.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Life Simulation</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header>
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="15000">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <!-- <li data-target="#carouselExampleIndicators" data-slide-to="2"></li> -->
+      </ol>
+      <div class="carousel-inner" role="listbox">
+
+        <!-- <div class="carousel-item active" style="background-image: url('http://placehold.it/1900x1080')">
+          <div class="carousel-caption d-none d-md-block">
+
+            <video controls autoplay>
+              <source src="https://www.youtube.com/channel/UCzyuZJ8zZ-Lhfnz41DG5qLw" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+
+
+          </div>
+        </div> -->
+
+        <!-- Slide One - Set the background image for this slide in the line below -->
+        <div class="carousel-item active">
+
+          <video  width="100%"  autoplay id="vid"  src="resources/ariel_top.mkv" type="video/mp4" frameborder="0" allowfullscreen autoplay loop
+          muted ></video>
+        </div>
+        <div class="carousel-item">
+
+          <video  width="100%"  autoplay id="vid"  src="resources/ariel_side.mkv" type="video/mp4" frameborder="0" allowfullscreen autoplay loop
+          muted ></video>
+        </div>
+        <!-- <div class="carousel-item" style="background-image: url('http://placehold.it/1900x1080')">
+          <div class="carousel-caption d-none d-md-block">
+            <h3>First Slide</h3>
+            <p>This is a description for the first slide.</p>
+          </div>
+        </div> -->
+        
+        <!-- <div class="carousel-item" style="background-image: url('http://placehold.it/1900x1080')">
+          <div class="carousel-caption d-none d-md-block">
+            <h3>Third Slide</h3>
+            <p>This is a description for the third slide.</p>
+          </div>
+        </div> -->
+        
+
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+
+  </header>
+
+  <!-- Page Content -->
+  <!-- <div  style="visibility: hidden;"></div> -->
+<div class="container">
+
+    <h1 class="my-4">Emergent Behaviors from a Large-Scale Life Simulation</h1>
+
+    The simulation takes place in a 2D grid which contains three types of entities: terrain, energy sources and cells. <br>
+
+    <!-- <hr> -->
+    <h2  class="section">Terrain</h2>
+    <p> The terrain is made of land (gray) and sea (blue). <br>
+    The land areas are randomly generated using <a href="https://en.wikipedia.org/wiki/Perlin_noise"> Perlin Noise</a>.
+    The energy sources can only be found on land.
+    In addition, the sea area is harmful to the living cells.
+
+    </p>
+    <p class="mt-5">The creation of a non-homogenous environment with separate territories would encourage more diverse behaviors and speciation, as we will later see.</p>
+    
+
+      <figure class="text-center">
+        <img src="resources/world.png" style="width:100%;">
+        <figcaption class="figure-caption text-right">1,000 x 1,000 units world. Every simulation may generate a different terrain.</figcaption>
+      </figure>
+
+
+
+  <!-- <hr> -->
+
+  <h2  class="section">Energy</h2>
+  <p class="mb-5"> An energy source is a circular object with radius proportional to its energy level. 
+    When a cell touches it, it may choose to consume its energy, thereby decreasing its size.</p>
+</div>
+<!-- /.container -->
+
+  <figure  >
+    <div class="video-container">
+
+    <video  width="100%"  autoplay id="video"  src="resources/cell_eats.mp4" type="video/mp4" frameborder="0" allowfullscreen autoplay loop
+    muted ></video>
+    </div>
+    <figcaption class="figure-caption text-right pr-5">A cell feeding</figcaption>
+
+  </figure>
+
+
+  <div class="container">
+
+  <!-- <hr> -->
+  <h2   class="section">Cell</h2>
+  <p class="mb-5"> A cell is a living creature, capable of moving, feeding and reproducing. 
+    In addition, a cell is capable of communicating with other cells as we will see later. </p>
+    <p>
+
+      <p class="mb-5">
+    A cell's size signifies the amount of energy that it has. A cell with a higher energy level can survive longer without food and may inflict more damage on other cells. <br>
+    Above a certain size threshold, a cell may also have the ability to reproduce via sexual reproduction.
+    </p>     
+
+    <p>
+      We use color to denote a cell's <strong>phenotype</strong>, which is a portion of its genome, or more technically, a fixed area from the weights of its neural network.
+      <div class="alert alert-info fade show">
+        The cell colors in our illustrations are derived from their phenotypes: We reduce the dimensionality of the phenotypes to 3-dimensional vectors and scale each axis to a [0, 255] range, denoting RGB colors.
+      </div>
+    </p>
+    <figure class="text-center">
+      <img src="resources/bacterias.png" style="width:100%;">
+      <figcaption class="figure-caption text-right">Cells with varying phenotypes and energy levels.</figcaption>
+    </figure>
+  <!-- //end section -->
+
+
+  <h2 class="section">Model</h2>
+  <p >At the heart of each cell is a gated recursive unit, or GRU, followed by a feed forward layer. </p>
+
+    <p class="mt-5">
+    Its output is a set of independent actions on other cells or on the environment:
+    A vector of <strong>acceleration</strong>, boolean flags indicating whether it wants to <strong>mate</strong>,  <strong>attack</strong> and  <strong>feed</strong>, and a free <strong>message</strong> that it wishes to broadcast to other, nearby cells. 
+    In addition, the cells can view each other's <strong>phenotype</strong>.
+    </p>
+    <!-- , which is a portion of their genome, or more technically, a fixed area from the neural network weights.
+    <div class="alert alert-info fade show">
+      The cell colors in our illustrations are derived from their phenotypes: We reduce the dimensionality of the phenotypes to 3-dimensional vectors and scale each axis to a [0, 255] range, denoting RGB colors.
+  </div> -->
+  
+
+  <!-- Light Alert -->
+<!-- <div class="alert alert-light  fade show">
+  The cell colors in our demos are derived from their phenotype. More specifically,
+  we reduce the dimensionality of the phenotypes to 3-dimensional vectors and scale each axis to a [0,255] range, denoting RGB colors.
+</div> -->
+    <!-- <em class="p-5">
+      The cell colors in our demos are derived from their phenotype. More specifically,
+       we reduce the dimensionality of the phenotypes to 3-dimensional vectors and scale each axis to a [0,255] range, denoting RGB colors.
+    </em> -->
+
+    <p class="mt-5">
+      Its input is more involved and encapsulates information from the cell's current state, as well as the state of nearby cells and energy sources. <br>
+      The cells have a limited receptive <i>range</i>: it cannot detect other cells and energy sources beyond this range. <br>
+      In addition, they have a limited receptive <i>field</i>. That is, they can only detect <em>k</em> cells/energy sources at once and always prefer to choose the closest. 
+    </p>
+
+      <figure class="text-center" >
+        <img src="resources/receptive_field.png" style="width:60%;">
+        <figcaption  class="figure-caption text-right pt-4"> A cell's (purple) receptive range of 50 units and receptive field of 2 cells maximum. Cells outside the receptive field (translucent) are invisible to the cell in the center.</figcaption>
+      </figure>
+
+
+    <p class="mt-5">
+      In summary, the cell input includes: the cell current <strong>acceleration</strong> vector, whether it is in <strong>sea</strong> or not, and its current <strong>energy</strong> level.<br>
+      Then, for each other cell <em>i</em> within its receptive range and field, a <strong>valid</strong> flag indicating whether there is indeed a cell within range (otherwise, all attributes concerning the i<sup>th</sup> cell are trash and should be neglected),
+      the <strong>direction</strong> to the i<sup>th</sup> cell, the <strong>distance</strong> from it, the <strong>message</strong> coming from that cell, its <strong>phenotype</strong> and its <strong>energy</strong> level.
+      <div class="alert alert-info fade show">
+        <strong>Valid flag:</strong> Since the dimensionality of the input must remain fixed for the neural network, fields must be populated even when data is absent. 
+        The valid flag allows the cell to distinguish between data that should be ignored and data that depicts an actual entity in-sight.
+      </div>
+      Likewise, for each energy source <em>j</em> within its receptive range and field, there is a flag indicating whether the data is <strong>valid</strong>  (<em>i.e.</em>, the energy source is in range), 
+      the <strong>direction</strong> and <strong>distance</strong> to that energy source.
+    </p>
+
+    <p class="mt-5">
+      Increasing the receptvie range and field increases the complexity of the observation space by a great amount. Therefore, in our experiments we limit the receptive field to 2 cells and 2 energy sources.
+
+    </p>
+
+    <p class="mt-5  mb-5"> The following diagram summarizes a single cell's neural network, its input and output.</p>
+    <figure>
+      <img src="resources/bacteria_model.png" style="width:100%">
+      <figcaption class="figure-caption text-right">A cell's model. The dimensions allocated to each feature are designated in the respective boxes.</figcaption>
+    </figure>
+
+  <p>
+  In many reinforcement learning problems the actor uses Markovian decision process, where a single state can be used to model all future environment interactions. <br>
+  In such situations, past states are useless since they don't tell us anymore than what the current state does.<br>
+
+  Since in our case the environment is only partially known to each cell and changes very often as cells enter and leave each other's receptive range, 
+  neglecting previous knowledge from previous states will result in 
+  spasmatic movement by the cells.<br>
+
+  Using a previous state manifests as a coherent movement and behavior, and allows the cell to preserve intention from one time step to the next. <br>
+    </p>
+
+
+
+
+
+  <!-- <img src="resources/bacteria.png" style="width:500px;">
+  <img src="resources/bacteria_model.png" style="width:500px;"> -->
+  //describe messages (eat, mate, attack) use words: hostile, friendly
+  //describe phenotype
+  //describe neural network used to implement all this
+
+
+    <h2 class="section">Reproduction</h2>
+    //Describe reproduction criteria, shuffling and genes with noise.
+    //Show video of reproducing
+    <p> The cells employ a sexual reproduction as their evolutionary strategy.      
+      When the sum of two cells' energy levels passes a certain threshold, they are allowed to mate. <br>
+    However, for mating to take place, the two cells must also touch and light their mating flags (a threshold cut-off is used to detect whether the mating flag is lit or not)
+    A single mating event results in the production of a single offspring whose neural network weights are an average of the weights of its two parents, with the addition of noise. <br>
+    Thus, the resulting offspring's traits and behaviors are similar to its parents', but may exhibit novel behaviors due to mutations (or noise).
+    
+    
+    In pratice, cells often mate with the same partner more than once in a short period of time, which results in many offsprings as can be seen below. <br>
+</p>
+</div>
+<!-- container -->
+
+<figure class="mt-5" >
+  <div class="video-container">
+  <video  width="100%"  autoplay id="mate-video"  src="resources/mating.mkv" type="video/mp4" frameborder="0" allowfullscreen autoplay loop
+  muted ></video>
+  </div>
+  <figcaption class="figure-caption text-right pr-5">Mating of two cells (blue and purple). Children phenotype is a noisy average of the two parents.</figcaption>
+</figure>
+
+<div class="container">
+<p>
+Cells also lose energy following a reproduction which enforces a limit on the number of matings they can do. <br>
+
+
+    </p>
+ 
+    <h2  class="section">Simulation</h2>
+    //Describe random scattering of food and energy resource
+
+    <p class="mb-5">
+    In each time step, the energy level of each cell is decreased by a constant so that cells must pro-actively acquire more energy in order to survive. <br>
+    When moving, cells also lose more energy that is proportional to their acceleration. <br>
+    Thus, cells must use their energy resource wisely, and only predetermined actions are encouraged. <br>
+  </p>
+
+    <p class="mb-5">
+    A world is defined by an NxN matrix, where N is initially small and increases with the cells' sophistication. <br>
+    The total energy in the world remains constant and is proportional to N. <br>
+    Thus, the sum of all energy sources together with the sum of all cells' energies, cannot exceed that level. <br>
+    This creates a tradeoff between the number of creatures in the world, and their level of sophistication. For example, in the initial phases, the world contains relatively more cells compared to later phases,
+    however, they are also much smaller as they are inapt in acquiring food.<br>
+    //TODO: Show 3 sizes of worlds with varying number of creatures (photos)
+  </p>
+
+    <p class="mb-5">
+    In each time step, we calculate the amount of new offspring that need to be added to the world. <br>
+    If this level reaches below the world capacity, we add cells at random positions, having randomly initialized weights. <br>
+    Else, if the world is at maximum capacity, we evict cells with the lowest energy levels, making room for the new offsprings. <br>    
+    However, when a cell's energy level passes a certain threshold, it cannot be evicted. <br>
+    In the rare case when the world is at maximum capacity, no new offpsrings can be made. <br>
+    </p>
+
+    <p class="mb-5">
+    //World expansion
+    We denote the <strong>generation</strong> of each cell as its depth in the lineage tree where the root ancestor was randomly generated.<br>
+    Thus, the generation can attest to the quality of a cell such that greater generations are expected to be more sophisticated. <br>
+
+    When the average generation of all cells reach a certain level, the world is expanded and its energy constant is increased proportionally.
+    Thus, more cells and energy sources can be generated, and cells have a larger inhabitant. <br>
+    After an expansion, the threshold generation for the next expansion is updated. <br>
+    //TODO: Show video of world expansion
+
+    The world expansion is dual-purpose in this case: first, it lets us run more simulation steps in a shorter period of time when the world is smaller and less entities are involved in the physics computation, in the early phases of training.
+    Second, it establishes a sort-of curiculum-learning, where cell behavior becomes more elaborate and diversifies towards later phases. <br>
+  </p>
+
+  <figure  >
+    <div class="video-container" >
+    <video  width="100%"  autoplay id="mate-video"  src="resources/world_expansion.mkv" type="video/mp4" frameborder="0" allowfullscreen autoplay loop
+    muted ></video>
+    </div>
+    <figcaption class="figure-caption text-right pr-5"></figcaption>
+  </figure>
+
+  <p class="mb-5">
+    As we will soon see, in the early phases cells focus is in mastering basic movement in order to reach an energy source, and later phases include speciation and communication with other cells.
+  </p>
+
+    <h2 class="my-4">Evolution of Movement in a Physical Environment</h2>
+
+</div> 
+<!-- container -->
+
+<figure class="mt-5" >
+  <div class="video-container" >
+  <video  width="100%"  autoplay id="mate-video"  src="resources/gen_comp.mkv" type="video/mp4" frameborder="0" allowfullscreen autoplay loop
+  muted ></video>
+  </div>
+  <figcaption class="figure-caption text-right pr-5">Mating of two cells (blue and purple). Children phenotype is a noisy average of the two parents.</figcaption>
+</figure>
+
+<div class="row">
+  <div class="col-xs-6 col-md-6 p-1">
+    <figure  >
+      <div class="video-container" >
+      <video  width="100%"  autoplay id="mate-video"  src="resources/wa500_bad.mkv" type="video/mp4" frameborder="0" allowfullscreen autoplay loop
+      muted ></video>
+      </div>
+      <figcaption class="figure-caption text-right pr-5"></figcaption>
+    </figure>
+
+  </div>
+
+<div class="col-xs-6 col-md-6 p-1">
+  <figure  >
+    <div class="video-container" >
+    <video  width="100%"  autoplay id="mate-video"  src="resources/wa500_good.mkv" type="video/mp4" frameborder="0" allowfullscreen autoplay loop
+    muted ></video>
+    </div>
+    <figcaption class="figure-caption text-right pr-5"></figcaption>
+  </figure>
+</div>
+
+</div>
+
+<div class="container">
+    //Describe movement physics
+    //Show gen competition
+    //Show incoherent movement in initial phases of world vs smooth movement
+    //Show how cells inhibit only land.
+
+  <h2 class="my-4">Speciation</h2>
+
+  <figure>
+    <img src="resources/world_snapshot.png" style="width:100%">
+    <figcaption class="figure-caption text-right">A 1400 by 1400 World snapshot.</figcaption>
+  </figure>
+
+  //Show species segregation.
+  //Show species indigenous in areas
+</div>
+
+<figure class="video-container" >
+  <video  width="100%"  autoplay id="segregation-video"  src="resources/species_segregation.mkv" type="video/mp4" frameborder="0" allowfullscreen autoplay loop
+  muted ></video>
+  </div>
+  <figcaption class="figure-caption text-right pr-5">Genetically different species exhibit different behaviors.</figcaption>
+</figure>
+
+<div class="container">
+    <h2 class="my-4">Evolution of Communication</h2>
+    //Show clustering of msgs, diversity
+    //Show speciaiton experiment
+    //Show attack
+    //Show is eating - where cell goes closer to the eating cell.
+</div>
+<!-- container -->
+<figure class="video-container" >
+  <video  width="100%"  autoplay id="segregation-video"  src="resources/signal_attack.mkv" type="video/mp4" frameborder="0" allowfullscreen autoplay loop
+  muted ></video>
+  </div>
+  <figcaption class="figure-caption text-right pr-5">The cell rounds the hostile cell in order to reach the energy source.</figcaption>
+</figure>
+
+<figure class="video-container" >
+  <video  width="100%"  autoplay id="segregation-video"  src="resources/signal_eat.mkv" type="video/mp4" frameborder="0" allowfullscreen autoplay loop
+  muted ></video>
+  </div>
+  <figcaption class="figure-caption text-right pr-5">The cell is lured by the feeding signal from the other cell.</figcaption>
+</figure>
+
+
+    <h2 class="my-4">Technical details</h2>
+    Implementation was done in numpy and pytorch. Simulation was done on a single CPU.
+    Illustrations were done using Blender 2.8
+    <!-- Marketing Icons Section -->
+    <div class="row">
+      <div class="col-lg-4 mb-4">
+        <div class="card h-100">
+          <h4 class="card-header">Card Title</h4>
+          <div class="card-body">
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+
+            <!-- <video controls autoplay>
+              <source src="https://www.youtube.com/channel/UCzyuZJ8zZ-Lhfnz41DG5qLw" type="video/mp4">
+              Your browser does not support the video tag.
+            </video> -->
+            <!-- <iframe width="100%" height="100%" src="https://www.youtube.com/embed/MHFK2oqTHaA?autoplay=1" 
+            frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+
+          </div>
+          <div class="card-footer">
+            <a href="#" class="btn btn-primary">Learn More</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 mb-4">
+        <div class="card h-100">
+          <h4 class="card-header">Card Title</h4>
+          <div class="card-body">
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ipsam eos, nam perspiciatis natus commodi similique totam consectetur praesentium molestiae atque exercitationem ut consequuntur, sed eveniet, magni nostrum sint fuga.</p>
+          </div>
+          <div class="card-footer">
+            <a href="#" class="btn btn-primary">Learn More</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 mb-4">
+        <div class="card h-100">
+          <h4 class="card-header">Card Title</h4>
+          <div class="card-body">
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+          </div>
+          <div class="card-footer">
+            <a href="#" class="btn btn-primary">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.row -->
+
+    <!-- Portfolio Section -->
+    <h2>Portfolio Heading</h2>
+
+    <div class="row">
+      <div class="col-lg-4 col-sm-6 portfolio-item">
+        <div class="card h-100">
+          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+          <div class="card-body">
+            <h4 class="card-title">
+              <a href="#">Project One</a>
+            </h4>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6 portfolio-item">
+        <div class="card h-100">
+          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+          <div class="card-body">
+            <h4 class="card-title">
+              <a href="#">Project Two</a>
+            </h4>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6 portfolio-item">
+        <div class="card h-100">
+          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+          <div class="card-body">
+            <h4 class="card-title">
+              <a href="#">Project Three</a>
+            </h4>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quisquam, error quod sed cumque, odio distinctio velit nostrum temporibus necessitatibus et facere atque iure perspiciatis mollitia recusandae vero vel quam!</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6 portfolio-item">
+        <div class="card h-100">
+          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+          <div class="card-body">
+            <h4 class="card-title">
+              <a href="#">Project Four</a>
+            </h4>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6 portfolio-item">
+        <div class="card h-100">
+          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+          <div class="card-body">
+            <h4 class="card-title">
+              <a href="#">Project Five</a>
+            </h4>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6 portfolio-item">
+        <div class="card h-100">
+          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+          <div class="card-body">
+            <h4 class="card-title">
+              <a href="#">Project Six</a>
+            </h4>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque earum nostrum suscipit ducimus nihil provident, perferendis rem illo, voluptate atque, sit eius in voluptates, nemo repellat fugiat excepturi! Nemo, esse.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.row -->
+
+    <!-- Features Section -->
+    <div class="row">
+      <div class="col-lg-6">
+        <h2>Modern Business Features</h2>
+        <p>The Modern Business template by Start Bootstrap includes:</p>
+        <ul>
+          <li>
+            <strong>Bootstrap v4</strong>
+          </li>
+          <li>jQuery</li>
+          <li>Font Awesome</li>
+          <li>Working contact form with validation</li>
+          <li>Unstyled page elements for easy customization</li>
+        </ul>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p>
+      </div>
+      <div class="col-lg-6">
+        <img class="img-fluid rounded" src="http://placehold.it/700x450" alt="">
+      </div>
+    </div>
+    <!-- /.row -->
+
+    <hr>
+
+    <!-- Call to Action Section -->
+    <div class="row mb-4">
+      <div class="col-md-8">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias asperiores commodi.</p>
+      </div>
+      <div class="col-md-4">
+        <a class="btn btn-lg btn-secondary btn-block" href="#">Call to Action</a>
+      </div>
+    </div>
+
+  </div>
+  <!-- container -->
+
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Technion - Israel Institute of Technology</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
