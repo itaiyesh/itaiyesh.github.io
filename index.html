@@ -100,13 +100,19 @@
 
     <!-- <hr> -->
     <h2 class="section">Terrain</h2>
-    <p> The terrain is made of land (gray) and sea (blue).
+    <p> The simulation takes place in a 2D grid. The terrain is made of land (gray) and sea (blue).
       The land areas are randomly generated using <a href="https://en.wikipedia.org/wiki/Perlin_noise"> Perlin
         Noise</a>.
       The energy sources can only be found on land.
       In addition, the sea area is harmful to the living cells.
 
     </p>
+
+    <div class="alert alert-info fade show">
+      Our illustrations are brought in 3D, even though simulations take place in a 2D world. Thus, the z-axis (height) of the entities in the illustrations, 
+      has no physical meaning in the simulation.
+    </div>
+
     <p class="mt-5 mb-5">The creation of a non-homogenous environment with separate territories would encourage more
       diverse
       behaviors and speciation, as we will later see.</p>
@@ -169,6 +175,11 @@
         <!-- In addition, the cells can view each other's <strong>phenotype</strong>. -->
       </p>
 
+      <!-- <div class="alert alert-info fade show">
+        The actions: mate, attack and feed are both 
+      </div> -->
+
+
       <p class="mt-5">
         Its input is more involved and encapsulates information from the cell's current state, as well as the state of
         nearby cells and energy sources.
@@ -209,7 +220,7 @@
       </p>
 
       <p class="mt-5">
-        Increasing the receptvie range and field increases the complexity of the observation space by a great amount.
+        Increasing the receptive range and field increases the complexity of the observation space by a great amount.
         Therefore, in our experiments we limit the receptive field to 2 cells and 2 energy sources (two separate
         receptive
         fields).
@@ -504,14 +515,14 @@
 
     <h2 class="section">Speciation</h2>
     <p class="mb-5">
-      The creation of inhabitable (land) and uninhabitable (sea) areas, make it harder for the cells to emmigrate from one
+      The  discontinued chunks of inhabitable (land) areas, make it harder for the cells to emmigrate from one
       place to another. This allows cells to develop separate
       genetic pools, each undergoing further evolutionary steps somewhat isolated from the other.
     </p>
 
     <p class="mb-5">
       A snapshot from a late phase in a simulation shows how separate phenotypes (hence, genes) are confined to separate
-      territories.
+      territories. Also, it shows that cells learn to avoid sea almost entirely.
     </p>
 
     <figure>
@@ -523,7 +534,7 @@
 
     <p class="mt-5">
       Since reproduction requires proximity, this correlation between genes and locality is expected. However, another
-      contributor is the similar behavior that
+      contributor is the similarity in behavior that
       like-cells exhibit.
     </p>
 
